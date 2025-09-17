@@ -39,17 +39,17 @@ export default function Header() {
               (document.getElementById(targetId)?.getBoundingClientRect().top ?? 0) + window.scrollY - offset
             );
 
-      const distance = targetTop - start;
-      const duration = Math.min(1200, Math.max(500, Math.abs(distance) * 0.6));
+  const distance = targetTop - start;
+  const duration = Math.min(1000, Math.max(300, Math.abs(distance) * 0.6));
       let startTime: number | null = null;
 
-      const easeInOutSine = (t: number) => -(Math.cos(Math.PI * t) - 1) / 2;
+  const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
 
       const step = (timestamp: number) => {
         if (startTime === null) startTime = timestamp;
         const elapsed = timestamp - startTime;
         const t = Math.min(1, elapsed / duration);
-        const eased = easeInOutSine(t);
+        const eased = easeOutCubic(t);
         window.scrollTo(0, start + distance * eased);
         if (t < 1) requestAnimationFrame(step);
       };
