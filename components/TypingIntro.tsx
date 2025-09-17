@@ -17,6 +17,7 @@ export default function TypingIntro() {
   useEffect(() => {
     const cleanups: Array<() => void> = [];
     let runCleanups: Array<() => void> = [];
+    let completed = false;
     // If already typed in this session, render built content immediately
     const originalParagraphInit = containerRef.current?.querySelector<HTMLElement>(".originalParagraph");
     const typedParagraphsInit = containerRef.current?.querySelectorAll<HTMLElement>(".typedParagraph");
@@ -55,21 +56,82 @@ export default function TypingIntro() {
       paragraphDelay = 25;
     };
 
+    // Track "impatience" impulses (scrolls/keys/touches) cumulatively and escalate speed
+    let impulseCount = 0;
+    let lastImpulseAt = 0;
+    const MIN_IMPULSE_GAP_MS = 200; // debounce bursts from a single wheel gesture
+    const setImpatienceLevel = (level: number) => {
+      try {
+        document.documentElement.dataset.impatience = String(level);
+        document.documentElement.classList.toggle("impatient", level >= 1);
+      } catch {}
+    };
+    const finalizeNow = () => {
+      if (completed) return;
+      completed = true;
+      cancelled = true;
+      // Stop any in-progress tickers before replacing content
+      runCleanups.forEach((fn) => {
+        try { fn(); } catch {}
+      });
+      runCleanups = [];
+
+      const originalParagraph = containerRef.current?.querySelector<HTMLElement>(".originalParagraph");
+      if (originalParagraph) originalParagraph.style.display = "none";
+
+      const typedParagraphs = containerRef.current?.querySelectorAll<HTMLElement>(".typedParagraph");
+      if (typedParagraphs && typedParagraphs.length > 0) {
+        typedParagraphs.forEach((el, idx) => {
+          if (builtParagraphs[idx] !== undefined) {
+            el.innerHTML = builtParagraphs[idx];
+          }
+        });
+        // Start ticker on rendered content
+        typedParagraphs.forEach((el) => {
+          const ph = el.querySelector<HTMLElement>(".life-seconds");
+          if (ph) cleanups.push(startLifespanSecondsTicker(ph, { expectancyYears: 80, fps: 10 }));
+        });
+      }
+      if (typeof window !== "undefined") {
+        window.__gcHomeTypedDone = true;
+        window.dispatchEvent(new CustomEvent("home-typing-done"));
+      }
+    };
+    const registerImpulse = (opts?: { light?: boolean }) => {
+      const now = (typeof performance !== "undefined" ? performance.now() : Date.now());
+      if (opts?.light) {
+        setImpatienceLevel(Math.max(1, Number(document.documentElement.dataset.impatience || 0)));
+        speedUp();
+        return;
+      }
+      if (now - lastImpulseAt < MIN_IMPULSE_GAP_MS) return; // debounce wheel bursts
+      lastImpulseAt = now;
+      impulseCount += 1;
+      const level = Math.min(impulseCount, 2);
+      setImpatienceLevel(level);
+      if (impulseCount === 1) {
+        // First attempt: go faster
+        speedUp();
+      } else if (impulseCount >= 2) {
+        // Second attempt: instant complete
+        finalizeNow();
+      }
+    };
+
     const onScroll = () => {
       if (window.scrollY > 200) {
-        speedUp();
+        registerImpulse();
       }
     };
     const onWheel = () => {
-      speedUp();
+      registerImpulse();
     };
     const onTouch = () => {
-      speedUp();
+      registerImpulse();
     };
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "ArrowDown") {
-        letterDelay = 1;
-        paragraphDelay = 1;
+      if (e.key === "ArrowDown" || e.key === "PageDown" || e.key === " ") {
+        registerImpulse();
       }
     };
   window.addEventListener("scroll", onScroll, { passive: true });

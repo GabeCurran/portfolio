@@ -13,7 +13,7 @@ export default function Header() {
   const [ready, setReady] = useState(!isHome);
 
   useEffect(() => {
-    if (!isHome) return; // Show immediately on non-home routes
+    if (!isHome) return;
     if (typeof window === "undefined") return;
     if (window.__gcHomeTypedDone) {
       setReady(true);
@@ -27,10 +27,10 @@ export default function Header() {
   const NavLink = ({ targetId, label }: { targetId: string; label: string }) => {
     const onClick: React.MouseEventHandler<HTMLAnchorElement> = (e) => {
       const isHome = pathname === "/";
-      if (!isHome) return; // let Link handle navigation if not on home
+      if (!isHome) return;
       e.preventDefault();
       const start = window.scrollY;
-  const offset = window.innerWidth >= 640 ? 24 : 16; // breathing room under nav
+  const offset = window.innerWidth >= 640 ? 24 : 16;
       const targetTop =
         targetId === "home"
           ? 0
@@ -40,18 +40,39 @@ export default function Header() {
             );
 
   const distance = targetTop - start;
-  const duration = Math.min(1000, Math.max(300, Math.abs(distance) * 0.6));
+  const isMobile = (typeof window !== "undefined" && (window.matchMedia?.('(pointer: coarse)')?.matches ?? false)) || window.innerWidth < 640;
+  const speedFactor = isMobile ? 0.35 : 0.6;
+  const minDur = isMobile ? 100 : 200;
+  const maxDur = isMobile ? 250 : 400;
+  const duration = Math.min(maxDur, Math.max(minDur, Math.abs(distance) * speedFactor));
       let startTime: number | null = null;
+      let impatienceCount = 0;
+      let lastImpulse = 0;
+      const onImpulse = () => {
+        const now = performance?.now?.() ?? Date.now();
+        if (now - lastImpulse < 200) return;
+        lastImpulse = now;
+        impatienceCount += 1;
+      };
+      window.addEventListener("wheel", onImpulse, { passive: true });
+      window.addEventListener("touchstart", onImpulse, { passive: true });
+      window.addEventListener("keydown", onImpulse);
 
   const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
 
       const step = (timestamp: number) => {
         if (startTime === null) startTime = timestamp;
-        const elapsed = timestamp - startTime;
+        const extraAccel = impatienceCount >= 2 ? 1.6 : impatienceCount === 1 ? 1.15 : 1;
+        const elapsed = (timestamp - startTime) * extraAccel;
         const t = Math.min(1, elapsed / duration);
         const eased = easeOutCubic(t);
         window.scrollTo(0, start + distance * eased);
         if (t < 1) requestAnimationFrame(step);
+        else {
+          window.removeEventListener("wheel", onImpulse as EventListener);
+          window.removeEventListener("touchstart", onImpulse as EventListener);
+          window.removeEventListener("keydown", onImpulse as EventListener);
+        }
       };
 
       requestAnimationFrame(step);

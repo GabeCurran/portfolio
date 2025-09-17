@@ -44,17 +44,35 @@ export default function RevealCover() {
     const onDone = () => {
       const el = coverRef.current;
       if (!el) return;
+      const impatience = Number(document.documentElement.dataset.impatience || 0);
+      const duration = impatience >= 2 ? 500 : 1750;
       el.style.transform = "translateX(100%)";
-      el.style.transition = "transform 1.75s ease-in-out";
-      const timeout = setTimeout(() => setHidden(true), 1800);
+      el.style.transition = `transform ${duration}ms ease-in-out`;
+      const timeout = setTimeout(() => setHidden(true), duration + 50);
       return () => clearTimeout(timeout);
     };
 
     window.addEventListener("home-typing-done", onDone as EventListener);
+    // If user double-scrolls/presses before typing finishes, collapse sooner
+    const onImpulse = () => {
+      const level = Number(document.documentElement.dataset.impatience || 0);
+      if (level >= 2) {
+        // accelerate slide if it triggers later
+        // No immediate action if typing not done; onDone will pick shorter duration
+      }
+    };
+    window.addEventListener("wheel", onImpulse, { passive: true });
+    window.addEventListener("keydown", onImpulse);
+    window.addEventListener("touchstart", onImpulse, { passive: true });
+    window.addEventListener("touchmove", onImpulse, { passive: true });
     return () => {
       window.removeEventListener("home-typing-done", onDone as EventListener);
       window.removeEventListener("resize", onResize);
       window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("wheel", onImpulse);
+      window.removeEventListener("keydown", onImpulse);
+      window.removeEventListener("touchstart", onImpulse);
+      window.removeEventListener("touchmove", onImpulse);
       if (ro) ro.disconnect();
     };
   }, []);
