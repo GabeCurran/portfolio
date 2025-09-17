@@ -38,7 +38,7 @@ const groups: { title: string; items: Skill[] }[] = [
     ],
   },
   {
-    title: "Database Systems",
+    title: "DB Systems",
     items: [
       { label: "SQL", note: "PostgreSQL\nMySQL\nSQL Server\nSQLite" },
       { label: "MongoDB" },
