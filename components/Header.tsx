@@ -55,6 +55,7 @@ export default function Header() {
       };
 
       requestAnimationFrame(step);
+
     };
 
     const isHome = pathname === "/";
@@ -82,7 +83,6 @@ export default function Header() {
         <div className="mx-auto sectionContainer">
           <div className="mx-auto w-fit border-b-2 border-accent pb-1.5 sm:pb-2.5 px-3">
             <div className="flex flex-nowrap items-center justify-center gap-2 sm:gap-6">
-              <NavLink targetId="home" label="Home" />
               <NavLink targetId="projects" label="Projects" />
               <NavLink targetId="skills" label="Skills" />
               <NavLink targetId="contact" label="Contact" />
@@ -90,7 +90,7 @@ export default function Header() {
                 href="/GabeCurranResume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center whitespace-nowrap px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base transition-colors hover:text-[#a33131]"
+                className="inline-flex items-center whitespace-nowrap px-2 sm:px-4 py-2 sm:py-3 text-sm sm:text-base transition-colors hover:text-[#a33131]"
                 aria-label="Resume"
               >
                 Resume

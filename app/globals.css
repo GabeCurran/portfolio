@@ -134,6 +134,10 @@ body {
   .sectionContainer { max-width: 72rem; }
 }
 
+/* Utility: hide scrollbar visuals while preserving scroll */
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
 .highlighted a.college.drexel { text-decoration: none; }
 .highlighted a.webstaurant { text-decoration: none; }
 
