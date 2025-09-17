@@ -120,7 +120,7 @@ export default function ProjectsGrid() {
               {p.dateRange ? (
                 <p className="text-[0.8rem] sm:text-xs text-foreground/70">{p.dateRange}</p>
               ) : null}
-              <p className="text-left md:text-center text-sm sm:text-base text-foreground/85 whitespace-pre-line leading-snug">
+              <p className="text-left text-sm sm:text-base text-foreground/85 whitespace-pre-line leading-snug">
                 {p.description}
               </p>
             </div>
