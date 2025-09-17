@@ -50,19 +50,24 @@ export default function Header() {
     minDur = 120;
     maxDur = 280;
   } else if (width < 1024) {
-    speedFactor = 0.6;
-    minDur = 240;
-    maxDur = 600;
+    speedFactor = 0.7;
+    minDur = 260;
+    maxDur = 900;
   } else if (width < 1536) {
-    speedFactor = 0.75;
-    minDur = 300;
-    maxDur = 800;
-  } else {
     speedFactor = 0.9;
-    minDur = 350;
-    maxDur = 1000;
+    minDur = 360;
+    maxDur = 1200;
+  } else {
+    speedFactor = 1.05;
+    minDur = 420;
+    maxDur = 1600;
   }
-  const duration = Math.min(maxDur, Math.max(minDur, Math.abs(distance) * speedFactor));
+  const absDist = Math.abs(distance);
+  const base = absDist * speedFactor;
+  let longMult = 1;
+  if (absDist > 3500) longMult = 1.5;
+  else if (absDist > 2000) longMult = 1.25;
+  const duration = Math.min(maxDur, Math.max(minDur, base * longMult));
       let startTime: number | null = null;
       let impatienceCount = 0;
       let lastImpulse = 0;
