@@ -1,5 +1,5 @@
 "use client";
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
@@ -56,12 +56,52 @@ export default function ProjectsGrid() {
     []
   );
 
+  // Refs and state to equalize description heights per row on desktop
+  const textRefs = useRef<Array<HTMLDivElement | null>>([]);
+  const [equalHeights, setEqualHeights] = useState<number[] | null>(null);
+
+  useEffect(() => {
+    const measure = () => {
+      const isDesktop = typeof window !== "undefined" && window.matchMedia("(min-width: 768px)").matches; // md and up
+      if (!isDesktop) {
+        setEqualHeights(null);
+        return;
+      }
+      const len = projects.length;
+      const heights: number[] = new Array(len).fill(0);
+      for (let i = 0; i < len; i += 2) {
+        const h1 = textRefs.current[i]?.offsetHeight ?? 0;
+        const h2 = textRefs.current[i + 1]?.offsetHeight ?? 0;
+        const rowMax = Math.max(h1, h2);
+        heights[i] = rowMax;
+        if (i + 1 < len) heights[i + 1] = rowMax;
+      }
+      setEqualHeights(heights);
+    };
+
+    // Initial measure after mount and when fonts/assets settle
+    const onLoad = () => measure();
+    measure();
+    window.addEventListener("resize", measure);
+    window.addEventListener("load", onLoad);
+    return () => {
+      window.removeEventListener("resize", measure);
+      window.removeEventListener("load", onLoad);
+    };
+  }, [projects.length]);
+
   return (
   <section id="projects" aria-label="Projects" className="mx-auto sectionContainer mt-10">
   <div className="grid gap-6 sm:gap-7 md:gap-8 grid-cols-1 md:grid-cols-2">
-        {projects.map((p) => (
+        {projects.map((p, i) => (
           <article key={p.title} className="relative flex flex-col gap-3">
-            <div className="projectText text-center space-y-1 flex flex-col justify-end min-h-28 sm:min-h-28 md:min-h-28 overflow-hidden">
+            <div
+              ref={(el) => {
+                textRefs.current[i] = el;
+              }}
+              className="projectText text-center space-y-1 flex flex-col justify-end min-h-28 sm:min-h-28 md:min-h-28"
+              style={equalHeights?.[i] ? { height: equalHeights[i] } : undefined}
+            >
               <h3 className="text-lg sm:text-xl font-semibold">
                 {p.url ? (
                   <a
@@ -80,7 +120,7 @@ export default function ProjectsGrid() {
               {p.dateRange ? (
                 <p className="text-[0.8rem] sm:text-xs text-foreground/70">{p.dateRange}</p>
               ) : null}
-              <p className="text-sm sm:text-base text-foreground/85 whitespace-pre-line leading-snug lineClamp2">
+              <p className="text-left md:text-center text-sm sm:text-base text-foreground/85 whitespace-pre-line leading-snug">
                 {p.description}
               </p>
             </div>
