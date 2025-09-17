@@ -26,6 +26,9 @@ export const metadata: Metadata = {
     template: "%s | Gabe Curran",
   },
   description: "Portfolio of Gabe Curran",
+  icons: {
+    icon: "/img/jarvis.png",
+  },
   metadataBase: new URL("https://gabecurran.me"),
   openGraph: {
     title: "Gabe Curran",
