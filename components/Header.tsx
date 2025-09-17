@@ -40,10 +40,28 @@ export default function Header() {
             );
 
   const distance = targetTop - start;
-  const isMobile = (typeof window !== "undefined" && (window.matchMedia?.('(pointer: coarse)')?.matches ?? false)) || window.innerWidth < 640;
-  const speedFactor = isMobile ? 0.35 : 0.6;
-  const minDur = isMobile ? 100 : 200;
-  const maxDur = isMobile ? 250 : 400;
+  const width = window.innerWidth;
+  const isCoarse = (typeof window !== "undefined" && (window.matchMedia?.('(pointer: coarse)')?.matches ?? false));
+  let speedFactor: number;
+  let minDur: number;
+  let maxDur: number;
+  if (isCoarse || width < 640) {
+    speedFactor = 0.35;
+    minDur = 120;
+    maxDur = 280;
+  } else if (width < 1024) {
+    speedFactor = 0.6;
+    minDur = 240;
+    maxDur = 600;
+  } else if (width < 1536) {
+    speedFactor = 0.75;
+    minDur = 300;
+    maxDur = 800;
+  } else {
+    speedFactor = 0.9;
+    minDur = 350;
+    maxDur = 1000;
+  }
   const duration = Math.min(maxDur, Math.max(minDur, Math.abs(distance) * speedFactor));
       let startTime: number | null = null;
       let impatienceCount = 0;
