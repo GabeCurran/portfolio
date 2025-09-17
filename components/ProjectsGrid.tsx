@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
+import YouTubeEmbed from "./YouTubeEmbed";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 type Project = {
@@ -130,21 +131,20 @@ export default function ProjectsGrid() {
               </div>
             ) : p.embedUrl || p.url ? (
               <div className="relative w-full h-[42vh] sm:h-[45vh] md:h-[50vh] lg:h-[55vh] xl:h-[58vh]">
-                <iframe
-                  src={p.embedUrl ?? p.url}
-                  className="absolute inset-0 w-full h-full border border-foreground rounded"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                />
-                {!p.embedUrl && p.url ? (
-                  <a
-                    href={p.url}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label={`Open ${p.title} in a new tab`}
-                    className="absolute inset-0"
+                {p.embedUrl?.includes("youtube") || p.url?.includes("youtube") || p.embedUrl?.includes("youtu.be") || p.url?.includes("youtu.be") ? (
+                  <YouTubeEmbed
+                    url={(p.embedUrl ?? p.url)!}
+                    title={p.title}
+                    className="absolute inset-0 w-full h-full border border-foreground rounded"
                   />
-                ) : null}
+                ) : (
+                  <iframe
+                    src={p.embedUrl ?? p.url}
+                    className="absolute inset-0 w-full h-full border border-foreground rounded"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                  />
+                )}
               </div>
             ) : null}
           </article>
