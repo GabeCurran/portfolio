@@ -27,8 +27,7 @@ const CUSTOM_TOKENS: Record<string, string> = {
 };
 
 export const INTRO_PARAGRAPHS: string[] = [
-  "I'm a software engineer with a passion for computers, software, web design, video games, and many other things! I'm always looking for ways to learn more and better myself. I'm currently working as a database developer for WebstaurantStore, where I help maintain their massive web and database systems. Feel free to explore my portfolio to see some of the projects I've worked on, and please feel free to reach out if you'd like to connect or collaborate!",
-  "I'll probably be around for the next [[LIFE_SECONDS]] seconds or so"
+  "I'm a software engineer with a passion for computers, software, web design, video games, and many other things! I'm always looking for ways to learn more and better myself. I'm currently working as a database developer for WebstaurantStore, where I help maintain their massive web and database systems. Feel free to explore my portfolio to see some of the projects I've worked on, and please reach out within the next [[LIFE_SECONDS]] seconds or so if you'd like to connect or collaborate!"
 ];
 
 export function escapeHtml(s: string): string {
