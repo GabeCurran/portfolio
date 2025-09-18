@@ -7,6 +7,40 @@ const nextConfig: NextConfig = {
     formats: ["image/avif", "image/webp"],
     minimumCacheTTL: 60 * 60 * 24,
   },
+  async redirects() {
+    return [
+      {
+        source: "/about",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/about/:path*",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/about.html",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/projects",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/projects/:path*",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/projects.html",
+        destination: "/",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
