@@ -18,10 +18,6 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-  },
   title: {
     default: "Gabe Curran",
     template: "%s | Gabe Curran",
@@ -45,6 +41,13 @@ export const metadata: Metadata = {
     title: "Gabe Curran",
     description: "Portfolio of Gabe Curran",
   },
+};
+
+// Per Next.js 13.4+ app router, viewport must be a separate export
+// https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({
