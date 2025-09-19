@@ -81,7 +81,7 @@ body {
 .amorevino:hover, .amorevino:active { color: #641B30; }
 .worlds { text-decoration: none; color: var(--foreground); }
 .worlds:hover, .worlds:active { color: #0388cd; }
-.groupMates { text-decoration: none; }
+.groupMates { text-decoration: underline; text-underline-offset: 4px; }
 .groupMates:hover, .groupMates:active { color: #a33131; }
 .webstaurant { text-decoration: none; color: var(--foreground); }
 .webstaurant:hover, .webstaurant:active { color: #298200; }

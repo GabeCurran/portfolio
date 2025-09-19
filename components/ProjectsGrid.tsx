@@ -109,7 +109,7 @@ export default function ProjectsGrid() {
                     href={p.url}
                     target="_blank"
                     rel="noreferrer"
-                    className="groupMates"
+                    className="groupMates underline underline-offset-2"
                     aria-label={`Open ${p.title} in a new tab`}
                   >
                     {p.title}
