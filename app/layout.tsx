@@ -6,6 +6,7 @@ import Footer from "../components/Footer";
 import "./globals.css";
 import { exo } from "./fonts";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -65,6 +66,7 @@ export default function RootLayout({
         {children}
         <Footer />
         <Analytics />
+        <SpeedInsights />
         <Script id="remove-preload" strategy="afterInteractive">
           {`
             (function(){
