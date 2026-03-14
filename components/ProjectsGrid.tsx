@@ -28,7 +28,7 @@ export default function ProjectsGrid() {
         url: "https://www.starworks-studios.com/",
         embedUrl: "https://www.youtube.com/embed/d1YAIFKTK7Q",
         description:
-          "Unity game developed with a team of students at Drexel University.\nI worked on early game design and core networking code.",
+          "Boast Guards is a Unity game developed with a team of students at Drexel University.\nI worked on early game design, core networking code, and also built our website.",
         dateRange: "May 2024 - Present",
       },
       {
