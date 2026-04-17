@@ -37,7 +37,7 @@ export default function ProjectsGrid() {
         image: "/img/previews/pokednd.png",
         mobileNote: { text: "Mobile styling in progress" },
         collaborators: [
-          { name: "Hunter Gallo", url: "https://github.com/Hgallo42" },
+          { name: "Hunter Gallo", url: "https://github.com/Hgallo42", role: "Founder" },
         ],
       },
       {
