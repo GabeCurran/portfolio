@@ -228,7 +228,7 @@ export default function SkillsSection() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-8">
         {groups.map((group) => (
           <div key={group.title}>
-            <p className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-foreground/50 mb-2">
+            <p className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-foreground mb-2">
               {group.title}
             </p>
             <ul className="flex flex-wrap gap-2">
