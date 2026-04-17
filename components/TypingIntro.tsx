@@ -287,7 +287,6 @@ export default function TypingIntro() {
     <section id="intro" ref={containerRef} className="flex flex-col items-center text-center gap-4">
       <h1 id="myName" className="text-4xl sm:text-5xl font-bold hover:text-accent">Gabe Curran</h1>
   <h2 className="text-sm sm:text-xl font-bold whitespace-nowrap">B.S. in Computer Science from <a href="https://www.drexel.edu/" target="_blank" rel="noreferrer" className="college drexel">Drexel University</a></h2>
-  <h2 className="text-sm sm:text-xl font-bold whitespace-nowrap">A.A.S. in Software Engineering from <a href="https://stevenscollege.edu/" target="_blank" rel="noreferrer" className="college tsct">TSCT</a></h2>
       <div id="infoP" className="w-full max-w-4xl sm:max-w-4xl md:max-w-4xl mx-auto text-left mt-3 sm:mt-4 space-y-3 sm:space-y-4">
         {/* Fallback paragraph for no-JS; mirrors first intro paragraph */}
         <p className="originalParagraph text-lg sm:text-xl" dangerouslySetInnerHTML={{ __html: builtParagraphs[0] ?? "" }} />
