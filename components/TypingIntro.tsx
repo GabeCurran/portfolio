@@ -142,6 +142,13 @@ export default function TypingIntro() {
 
     const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
+    const appendFadeChar = (parent: HTMLElement, ch: string) => {
+      const s = document.createElement("span");
+      s.className = "fadeLetter";
+      s.textContent = ch;
+      parent.append(s);
+    };
+
     const run = async () => {
       const originalParagraph = containerRef.current?.querySelector<HTMLElement>(".originalParagraph");
       const typedParagraphs = containerRef.current?.querySelectorAll<HTMLElement>(".typedParagraph");
@@ -171,7 +178,7 @@ export default function TypingIntro() {
             const snapText = formatInt(snapSecs);
             for (const ch of snapText) {
               if (cancelled) return;
-              ph.append(document.createTextNode(ch));
+              appendFadeChar(ph, ch);
               await sleep(letterDelay);
             }
             // After typing completes, start the live ticker updates
@@ -192,7 +199,7 @@ export default function TypingIntro() {
 
             for (const ch of token) {
               if (cancelled) return;
-              wrapper.append(document.createTextNode(ch));
+              appendFadeChar(wrapper, ch);
               await sleep(letterDelay);
             }
 
@@ -214,7 +221,7 @@ export default function TypingIntro() {
           } else {
             for (const ch of token) {
               if (cancelled) return;
-              pEl.append(document.createTextNode(ch));
+              appendFadeChar(pEl, ch);
               await sleep(letterDelay);
             }
           }

@@ -45,7 +45,13 @@ export default function RevealCover() {
       const el = coverRef.current;
       if (!el) return;
       const impatience = Number(document.documentElement.dataset.impatience || 0);
-      const duration = impatience >= 2 ? 500 : 1750;
+      const width = window.innerWidth;
+      let baseDur: number;
+      if (width < 640) baseDur = 1100;
+      else if (width < 1024) baseDur = 1100;
+      else if (width < 1536) baseDur = 950;
+      else baseDur = 800;
+      const duration = impatience >= 2 ? 500 : baseDur;
       el.style.transform = "translateX(100%)";
       el.style.transition = `transform ${duration}ms ease-in-out`;
       const timeout = setTimeout(() => setHidden(true), duration + 50);
