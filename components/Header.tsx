@@ -122,7 +122,7 @@ export default function Header() {
         href={href}
         prefetch={false}
         onClick={onClick}
-        className={`inline-flex items-center whitespace-nowrap px-3 sm:px-4 py-3 sm:py-2 text-sm sm:text-base transition-colors hover:text-[#a33131]`}
+        className={`inline-flex items-center whitespace-nowrap px-2 sm:px-4 py-3 sm:py-2 text-sm sm:text-base transition-colors hover:text-[#a33131]`}
         aria-current={undefined}
       >
         {label}
@@ -132,14 +132,14 @@ export default function Header() {
   return (
     <header
       ref={headerRef}
-      className={`sticky top-0 z-40 flex items-center justify-center bg-background transition-all duration-700 ${
+      className={`sticky top-0 z-40 flex items-center justify-center bg-background overflow-x-clip transition-all duration-700 ${
         ready ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2 pointer-events-none select-none"
       }`}
     >
       <nav className="w-full">
         <div className="mx-auto sectionContainer">
           <div className="mx-auto w-fit relative pt-2 md:pt-0 pb-0.5 px-3">
-            <div className="flex flex-nowrap items-center justify-center gap-2 sm:gap-6">
+            <div className="flex flex-nowrap items-center justify-center gap-1 sm:gap-6">
               <NavLink targetId="projects" label="Projects" />
               <NavLink targetId="skills" label="Skills" />
               <NavLink targetId="contact" label="Contact" />
@@ -147,7 +147,7 @@ export default function Header() {
                 href="/GabeCurranResume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center whitespace-nowrap px-2 sm:px-4 py-3 sm:py-2 text-sm sm:text-base transition-colors hover:text-[#a33131]"
+                className="inline-flex items-center whitespace-nowrap px-1.5 sm:px-4 py-3 sm:py-2 text-sm sm:text-base transition-colors hover:text-[#a33131]"
                 aria-label="Resume"
               >
                 Resume
