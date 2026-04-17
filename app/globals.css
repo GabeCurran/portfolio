@@ -237,3 +237,19 @@ body {
     radial-gradient(circle, rgba(14, 16, 40, 0.55), transparent 55%),
     linear-gradient(135deg, #131522, #1f2033);
 }
+
+/* --- Skill chips: brand-color hover ------------------------------------
+   Each chip sets --skill-color via inline style (defaults to accent).
+   color-mix gives us translucent border/bg variants automatically.
+   !important overrides Tailwind utility classes for border/bg/color on hover. */
+.skill-chip {
+  --skill-color: var(--accent);
+  transition: border-color 180ms ease, color 180ms ease;
+}
+.skill-chip .skill-icon {
+  color: var(--skill-color);
+}
+.skill-chip:hover {
+  border-color: var(--skill-color) !important;
+  color: var(--skill-color) !important;
+}
