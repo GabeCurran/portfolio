@@ -135,7 +135,7 @@ export default function ProjectsGrid() {
         preview: "preview-seniorcare",
         image: "/img/previews/seniorcare.png",
         collaborators: [
-          { name: "Andrew Matt", url: "https://www.youtube.com/@Finding_Fortune" },
+          { name: "Andrew Matt", url: "https://www.linkedin.com/in/andrew-matt/" },
           { name: "Spencer Heffley", url: "https://www.linkedin.com/in/spheffley/" },
         ],
       },
