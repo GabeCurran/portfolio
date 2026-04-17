@@ -277,16 +277,16 @@ function Collaborators({ people }: { people: Collaborator[] }) {
 
 function CollaboratorCard({ c }: { c: Collaborator }) {
   const inner = (
-    <div className="flex flex-col leading-tight min-w-0 pr-5">
+    <div className="flex flex-col leading-none min-w-0 pr-5">
       <span
-        className={`text-xs font-medium whitespace-nowrap transition-colors ${
+        className={`text-xs font-medium whitespace-nowrap leading-none transition-colors ${
           c.url ? "group-hover/collab:text-accent" : ""
         }`}
       >
         {c.name}
       </span>
       {c.role && (
-        <span className="text-[0.62rem] text-foreground/55 leading-tight mt-0.5 line-clamp-2">
+        <span className="text-[0.62rem] text-foreground/55 leading-tight mt-1 line-clamp-2">
           {c.role}
         </span>
       )}
@@ -294,7 +294,7 @@ function CollaboratorCard({ c }: { c: Collaborator }) {
   );
 
   const base =
-    "relative block min-w-[110px] px-3 py-2 rounded-lg border border-foreground/10 bg-foreground/[0.02] transition-colors";
+    "relative inline-flex items-center min-w-[110px] px-3 py-2 rounded-lg border border-foreground/10 bg-foreground/[0.02] transition-colors";
 
   if (c.url) {
     return (
