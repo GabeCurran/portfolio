@@ -4,16 +4,14 @@ export type LinkMap = Record<string, string | LinkConfig>;
 
 export const HIGHLIGHT_TERMS: HighlightTerms = [
   "software engineer",
-  "computers",
-  "software",
-  "web design",
-  "video games",
-  "learn more",
-  "better myself",
+  "web apps",
+  "games",
+  "internal data tools",
   "database engineer",
   "WebstaurantStore",
+  "Pokémon D&D",
+  "Revelations",
   "connect",
-  "collaborate",
 ];
 
 export const LINKS: LinkMap = {
@@ -27,7 +25,7 @@ const CUSTOM_TOKENS: Record<string, string> = {
 };
 
 export const INTRO_PARAGRAPHS: string[] = [
-  "I'm a software engineer with a passion for computers, software, web design, video games, and many other things! I'm always looking for ways to learn more and better myself. I'm currently working as a database engineer for WebstaurantStore, where I help maintain their massive web and database systems. Feel free to explore my portfolio to see some of the projects I've worked on, and please reach out within the next [[LIFE_SECONDS]] seconds or so if you'd like to connect or collaborate!"
+  "I'm a software engineer who works on web apps, games, and internal data tools. I'm currently a database engineer at WebstaurantStore, where I help maintain a lot of our web and database systems. Outside of work I'm building a Pokémon D&D web app with a friend, and a web-based PvP dueling game called Revelations. Feel free to check out my projects below, and reach out within the next [[LIFE_SECONDS]] seconds or so if you'd like to connect!",
 ];
 
 export function escapeHtml(s: string): string {
