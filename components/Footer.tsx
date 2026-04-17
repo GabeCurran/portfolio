@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-  <footer id="contact" className="flex flex-col items-center justify-center mt-12 pb-10 gap-4">
+  <footer id="contact" className="flex flex-col items-center justify-center mt-12 pb-4 md:pb-10 gap-4">
       <div className="flex items-center justify-center gap-6 mb-8 sm:mb-0">
         <a target="_blank" rel="noreferrer" href="https://github.com/GabeCurran/" aria-label="GitHub">
           <div className="h-12 w-12 sm:h-16 sm:w-16">
