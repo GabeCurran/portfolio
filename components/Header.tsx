@@ -138,7 +138,7 @@ export default function Header() {
     >
       <nav className="w-full">
         <div className="mx-auto sectionContainer">
-          <div className="mx-auto w-fit relative pt-0 pb-0.5 px-3">
+          <div className="mx-auto w-fit relative pt-2 md:pt-0 pb-0.5 px-3">
             <div className="flex flex-nowrap items-center justify-center gap-2 sm:gap-6">
               <NavLink targetId="projects" label="Projects" />
               <NavLink targetId="skills" label="Skills" />
