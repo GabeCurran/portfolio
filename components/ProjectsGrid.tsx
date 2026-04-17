@@ -215,7 +215,7 @@ function ProjectCard({ project: p }: { project: Project }) {
           {p.tech.map((t) => (
             <li
               key={t}
-              className="text-xs px-2 py-0.5 rounded-full border border-foreground/20 text-foreground/75 group-hover/link:border-foreground/40 transition-colors"
+              className="inline-flex items-center text-xs leading-none px-2 py-1 rounded-full border border-foreground/20 text-foreground/75 group-hover/link:border-foreground/40 transition-colors"
             >
               {t}
             </li>
