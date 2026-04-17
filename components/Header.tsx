@@ -122,7 +122,7 @@ export default function Header() {
         href={href}
         prefetch={false}
         onClick={onClick}
-        className={`inline-flex items-center whitespace-nowrap px-3 sm:px-4 py-1.5 sm:py-2 text-sm sm:text-base transition-colors hover:text-[#a33131]`}
+        className={`inline-flex items-center whitespace-nowrap px-3 sm:px-4 py-3 sm:py-2 text-sm sm:text-base transition-colors hover:text-[#a33131]`}
         aria-current={undefined}
       >
         {label}
@@ -147,7 +147,7 @@ export default function Header() {
                 href="/GabeCurranResume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center whitespace-nowrap px-2 sm:px-4 py-1.5 sm:py-2 text-sm sm:text-base transition-colors hover:text-[#a33131]"
+                className="inline-flex items-center whitespace-nowrap px-2 sm:px-4 py-3 sm:py-2 text-sm sm:text-base transition-colors hover:text-[#a33131]"
                 aria-label="Resume"
               >
                 Resume
@@ -155,13 +155,17 @@ export default function Header() {
             </div>
             <div
               aria-hidden="true"
-              className={`pointer-events-none absolute left-1/2 -translate-x-1/2 bottom-0 h-[2px] bg-accent transition-[width] duration-500 ease-out ${
+              className={`pointer-events-none absolute left-1/2 -translate-x-1/2 bottom-0 h-[2px] bg-accent transition-[width] duration-500 ease-out hidden md:block ${
                 scrolled ? "w-full md:w-screen" : "w-full"
               }`}
             />
           </div>
         </div>
       </nav>
+      <div
+        aria-hidden="true"
+        className="md:hidden pointer-events-none absolute bottom-0 left-4 right-4 h-[2px] bg-accent"
+      />
     </header>
   );
 }
