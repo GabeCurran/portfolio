@@ -97,12 +97,17 @@ const groups: Group[] = [
     ],
   },
   {
-    title: "Games & Graphics",
+    title: "DevOps & Tooling",
     items: [
-      { label: "Unity", icon: SiUnity, href: "https://unity.com/" },
-      { label: "Three.js", icon: SiThreedotjs, href: "https://threejs.org/" },
-      { label: "WebGL", icon: SiWebgl, href: "https://www.khronos.org/webgl/" },
-      { label: "Phaser", icon: FaGamepad, href: "https://phaser.io/" },
+      { label: "Docker", icon: SiDocker, href: "https://www.docker.com/" },
+      { label: "GitHub", icon: SiGithub, href: "https://github.com/" },
+      { label: "Azure DevOps", icon: VscAzureDevops, href: "https://azure.microsoft.com/en-us/products/devops" },
+      { label: "Vercel", icon: SiVercel, href: "https://vercel.com/" },
+      { label: "Railway", icon: SiRailway, href: "https://railway.com/" },
+      { label: "Bash", icon: SiGnubash, href: "https://www.gnu.org/software/bash/" },
+      { label: "PowerShell", icon: TbBrandPowershell, href: "https://learn.microsoft.com/en-us/powershell/" },
+      { label: "npm", icon: SiNpm, href: "https://www.npmjs.com/" },
+      { label: "Docusaurus", icon: SiDocusaurus, href: "https://docusaurus.io/" },
     ],
   },
   {
@@ -118,33 +123,12 @@ const groups: Group[] = [
     ],
   },
   {
-    title: "Data & Orchestration",
+    title: "Games & Graphics",
     items: [
-      { label: "Apache Airflow", icon: SiApacheairflow, href: "https://airflow.apache.org/" },
-      { label: "Qlik", icon: SiQlik, href: "https://www.qlik.com/" },
-      { label: "Liquibase", icon: SiLiquibase, href: "https://www.liquibase.com/" },
-    ],
-  },
-  {
-    title: "DevOps & Tooling",
-    items: [
-      { label: "Docker", icon: SiDocker, href: "https://www.docker.com/" },
-      { label: "GitHub", icon: SiGithub, href: "https://github.com/" },
-      { label: "Azure DevOps", icon: VscAzureDevops, href: "https://azure.microsoft.com/en-us/products/devops" },
-      { label: "Vercel", icon: SiVercel, href: "https://vercel.com/" },
-      { label: "Railway", icon: SiRailway, href: "https://railway.com/" },
-      { label: "Bash", icon: SiGnubash, href: "https://www.gnu.org/software/bash/" },
-      { label: "PowerShell", icon: TbBrandPowershell, href: "https://learn.microsoft.com/en-us/powershell/" },
-      { label: "npm", icon: SiNpm, href: "https://www.npmjs.com/" },
-      { label: "Docusaurus", icon: SiDocusaurus, href: "https://docusaurus.io/" },
-    ],
-  },
-  {
-    title: "Auth & Platforms",
-    items: [
-      { label: "Ory", icon: TbShield, href: "https://ory.sh/" },
-      { label: "Oso", icon: TbShield, href: "https://www.osohq.com/" },
-      { label: "Descope", icon: TbKey, href: "https://descope.com/" },
+      { label: "Unity", icon: SiUnity, href: "https://unity.com/" },
+      { label: "Three.js", icon: SiThreedotjs, href: "https://threejs.org/" },
+      { label: "WebGL", icon: SiWebgl, href: "https://www.khronos.org/webgl/" },
+      { label: "Phaser", icon: FaGamepad, href: "https://phaser.io/" },
     ],
   },
   {
@@ -153,6 +137,22 @@ const groups: Group[] = [
       { label: "Playwright", icon: FaTheaterMasks, href: "https://playwright.dev/" },
       { label: "Vitest", icon: SiVitest, href: "https://vitest.dev/" },
       { label: "Selenium", icon: SiSelenium, href: "https://www.selenium.dev/" },
+    ],
+  },
+  {
+    title: "Data & Orchestration",
+    items: [
+      { label: "Apache Airflow", icon: SiApacheairflow, href: "https://airflow.apache.org/" },
+      { label: "Qlik", icon: SiQlik, href: "https://www.qlik.com/" },
+      { label: "Liquibase", icon: SiLiquibase, href: "https://www.liquibase.com/" },
+    ],
+  },
+  {
+    title: "Auth & Platforms",
+    items: [
+      { label: "Ory", icon: TbShield, href: "https://ory.sh/" },
+      { label: "Oso", icon: TbShield, href: "https://www.osohq.com/" },
+      { label: "Descope", icon: TbKey, href: "https://descope.com/" },
     ],
   },
 ];
@@ -225,9 +225,9 @@ export default function SkillsSection() {
       <h2 id="skills-heading" className="sr-only">
         Skills
       </h2>
-      <div className="columns-1 md:columns-2 gap-x-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-8">
         {groups.map((group) => (
-          <div key={group.title} className="break-inside-avoid mb-8">
+          <div key={group.title}>
             <p className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-foreground/50 mb-2">
               {group.title}
             </p>
