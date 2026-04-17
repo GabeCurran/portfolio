@@ -219,19 +219,19 @@ export default function SkillsSection() {
   return (
     <section
       id="skills"
-      className="mx-auto sectionContainer mt-10"
+      className="mx-auto sectionContainer mt-10 mb-24"
       aria-labelledby="skills-heading"
     >
       <h2 id="skills-heading" className="sr-only">
         Skills
       </h2>
-      <div className="columns-1 md:columns-2 lg:columns-3 gap-x-6 lg:gap-x-8">
+      <div className="columns-1 md:columns-2 gap-x-8">
         {groups.map((group) => (
-          <div key={group.title} className="break-inside-avoid mb-5">
-            <p className="text-[0.65rem] sm:text-xs font-semibold uppercase tracking-wider text-foreground/50 mb-1.5">
+          <div key={group.title} className="break-inside-avoid mb-8">
+            <p className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-foreground/50 mb-2">
               {group.title}
             </p>
-            <ul className="flex flex-wrap gap-1.5">
+            <ul className="flex flex-wrap gap-2">
               {group.items.map((item) => (
                 <li key={item.label}>
                   <SkillChip item={item} />
@@ -252,13 +252,13 @@ function SkillChip({ item }: { item: Skill }) {
     ? ({ "--skill-color": color } as CSSProperties)
     : undefined;
   const classes =
-    "skill-chip inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-foreground/15 bg-foreground/[0.02] text-[0.8rem] leading-none";
+    "skill-chip inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-foreground/15 bg-foreground/[0.02] text-[0.95rem] leading-none";
   const inner = (
     <>
       {Icon && (
         <Icon
           aria-hidden="true"
-          size={13}
+          size={16}
           className="skill-icon shrink-0"
         />
       )}
