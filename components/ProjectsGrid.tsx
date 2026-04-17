@@ -86,7 +86,7 @@ export default function ProjectsGrid() {
         title: "Blockverse",
         url: "https://blockverseproductions.com/",
         description:
-          "The marketing site for a Roblox game, built for Starworks under a local contract. It's built with a custom CMS and admin dashboard where authorized editors can update every page section, upload images, and review contact submissions. All backed by Supabase with row-level security and ISR.",
+          "The marketing site for a Roblox game, built for Starworks under a local contract. It's built with a custom CMS and admin dashboard where authorized editors can update every page section, upload images, and review contact submissions. Uses Supabase with RLS and ISR.",
         dateRange: "Mar 2026",
         tech: ["TypeScript", "React", "Next.js", "Tailwind", "Supabase"],
         preview: "preview-blockverse",
