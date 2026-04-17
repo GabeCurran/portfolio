@@ -27,17 +27,18 @@ export default function ProjectsGrid() {
   const projects: Project[] = useMemo(
     () => [
       {
-        title: "PokeDnD",
-        url: "https://pokednd.live/",
+        title: "LingoLyrics",
+        url: "https://lingolyrics.vercel.app/",
         description:
-          "A Pokémon-themed tabletop RPG web app with real-time battles, dice rolls, music sync, a full Pokédex, and a trainer and campaign management system.",
-        dateRange: "Sep 2025 - Present",
-        tech: ["TypeScript", "React", "Next.js", "Tailwind", "Prisma", "PostgreSQL", "Ory", "SSE"],
-        preview: "preview-pokednd",
-        image: "/img/previews/pokednd.png",
-        mobileNote: { text: "Mobile styling in progress" },
+          "Lyric translations and annotations, powered by AI. Fetches synced lyrics for a song and lets you translate and annotate them line by line.",
+        dateRange: "Jul 2025 - Present",
+        tech: ["TypeScript", "React", "Next.js", "Tailwind", "Claude API", "OpenAI API", "LRCLib"],
+        preview: "preview-lingolyrics",
+        image: "/img/previews/lingolyrics.png",
         collaborators: [
-          { name: "Hunter Gallo", url: "https://github.com/Hgallo42", role: "Founder" },
+          { name: "Sylas Serpens", url: "https://www.linkedin.com/in/sylasserpens/" },
+          { name: "Brandon White", url: "https://www.linkedin.com/in/brandon-white-drexel/" },
+          { name: "Jae Lee", url: "https://www.linkedin.com/in/jae-lee4578/" },
         ],
       },
       {
@@ -55,18 +56,17 @@ export default function ProjectsGrid() {
         ],
       },
       {
-        title: "LingoLyrics",
-        url: "https://lingolyrics.vercel.app/",
+        title: "PokeDnD",
+        url: "https://pokednd.live/",
         description:
-          "Lyric translations and annotations, powered by AI. Fetches synced lyrics for a song and lets you translate and annotate them line by line.",
-        dateRange: "Jul 2025 - Present",
-        tech: ["TypeScript", "React", "Next.js", "Tailwind", "Claude API", "OpenAI API", "LRCLib"],
-        preview: "preview-lingolyrics",
-        image: "/img/previews/lingolyrics.png",
+          "A Pokémon-themed tabletop RPG web app with real-time battles, dice rolls, music sync, a full Pokédex, and a trainer and campaign management system.",
+        dateRange: "Sep 2025 - Present",
+        tech: ["TypeScript", "React", "Next.js", "Tailwind", "Prisma", "PostgreSQL", "Ory", "SSE"],
+        preview: "preview-pokednd",
+        image: "/img/previews/pokednd.png",
+        mobileNote: { text: "Mobile styling in progress" },
         collaborators: [
-          { name: "Sylas Serpens", url: "https://www.linkedin.com/in/sylasserpens/" },
-          { name: "Brandon White", url: "https://www.linkedin.com/in/brandon-white-drexel/" },
-          { name: "Jae Lee", url: "https://www.linkedin.com/in/jae-lee4578/" },
+          { name: "Hunter Gallo", url: "https://github.com/Hgallo42", role: "Founder" },
         ],
       },
       {
