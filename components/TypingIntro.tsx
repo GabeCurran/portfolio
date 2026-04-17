@@ -48,8 +48,8 @@ export default function TypingIntro() {
     }
 
   let cancelled = false;
-    let letterDelay = 25;
-    let paragraphDelay = 250;
+    let letterDelay = 12;
+    let paragraphDelay = 125;
 
     const speedUp = () => {
       letterDelay = 5;

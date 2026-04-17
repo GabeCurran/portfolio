@@ -58,21 +58,21 @@ export default function Header() {
   let minDur: number;
   let maxDur: number;
   if (isCoarse || width < 640) {
-    speedFactor = 0.35;
-    minDur = 120;
-    maxDur = 280;
+    speedFactor = 0.25;
+    minDur = 110;
+    maxDur = 260;
   } else if (width < 1024) {
-    speedFactor = 0.7;
-    minDur = 260;
-    maxDur = 900;
+    speedFactor = 0.5;
+    minDur = 180;
+    maxDur = 600;
   } else if (width < 1536) {
-    speedFactor = 0.9;
-    minDur = 360;
-    maxDur = 1200;
+    speedFactor = 0.6;
+    minDur = 240;
+    maxDur = 800;
   } else {
-    speedFactor = 1.05;
-    minDur = 420;
-    maxDur = 1600;
+    speedFactor = 0.65;
+    minDur = 280;
+    maxDur = 950;
   }
   const absDist = Math.abs(distance);
   const base = absDist * speedFactor;
@@ -93,15 +93,16 @@ export default function Header() {
       window.addEventListener("touchstart", onImpulse, { passive: true });
       window.addEventListener("keydown", onImpulse);
 
-  const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
+  const easeInOutCubic = (t: number) =>
+    t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 
       const step = (timestamp: number) => {
         if (startTime === null) startTime = timestamp;
         const extraAccel = impatienceCount >= 2 ? 1.6 : impatienceCount === 1 ? 1.15 : 1;
         const elapsed = (timestamp - startTime) * extraAccel;
         const t = Math.min(1, elapsed / duration);
-        const eased = easeOutCubic(t);
-        window.scrollTo(0, start + distance * eased);
+        const eased = easeInOutCubic(t);
+        window.scrollTo({ top: start + distance * eased, behavior: "instant" });
         if (t < 1) requestAnimationFrame(step);
         else {
           window.removeEventListener("wheel", onImpulse as EventListener);
