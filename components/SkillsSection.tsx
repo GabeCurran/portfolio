@@ -17,7 +17,7 @@ const groups: { title: string; items: Skill[] }[] = [
       { label: "Dart" },
       { label: "Java" },
       { label: "C" },
-      { label: "C#" },
+      { label: "C#", note: ".NET" },
       { label: "Python" },
       { label: "Lua" },
     ],
@@ -28,20 +28,37 @@ const groups: { title: string; items: Skill[] }[] = [
       { label: "React", note: "Next.js" },
       { label: "Node.js" },
       { label: "Express" },
-      { label: "Vue.js" },
-      { label: "Unity" },
+      { label: "Three.js" },
+      { label: "Electron" },
+      {
+        label: "Unity",
+        subItems: [
+          { label: "Netcode for GameObjects", href: "https://docs-multiplayer.unity3d.com/netcode/current/about/" },
+        ],
+      },
       { label: "Angular" },
+      { label: "Vue.js" },
       { label: "Laravel" },
-      { label: "Flutter" },
       { label: "Flask" },
+      { label: "Flutter" },
       { label: "Solar2D" },
     ],
   },
   {
-    title: "DB Systems",
+    title: "DB & ORM",
     items: [
       { label: "SQL", note: "PostgreSQL\nMySQL\nSQL Server\nSQLite" },
+      { label: "Prisma" },
+      { label: "Supabase" },
       { label: "MongoDB" },
+    ],
+  },
+  {
+    title: "Data & Orchestration",
+    items: [
+      { label: "Apache Airflow" },
+      { label: "Qlik" },
+      { label: "Liquibase" },
     ],
   },
   {
@@ -50,6 +67,7 @@ const groups: { title: string; items: Skill[] }[] = [
       { label: "Docker" },
       { label: "GitHub" },
       { label: "Azure DevOps" },
+      { label: "Vercel" },
       { label: "Bash" },
       { label: "PowerShell" },
       { label: "npm" },
@@ -85,7 +103,7 @@ const groups: { title: string; items: Skill[] }[] = [
   },
   {
     title: "Testing & QA",
-    items: [{ label: "Playwright" }, { label: "Selenium" }],
+    items: [{ label: "Playwright" }, { label: "Vitest" }, { label: "Selenium" }],
   },
 ];
 
