@@ -157,7 +157,7 @@ export default function Header() {
             <div
               aria-hidden="true"
               className={`pointer-events-none absolute left-1/2 -translate-x-1/2 bottom-0 h-[2px] bg-accent transition-[width] duration-500 ease-out hidden md:block ${
-                scrolled ? "w-full md:w-screen" : "w-full"
+                scrolled ? "w-[min(100vw,60rem)] xl:w-[min(100vw,72rem)]" : "w-full"
               }`}
             />
           </div>
