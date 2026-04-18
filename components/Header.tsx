@@ -133,7 +133,7 @@ export default function Header() {
   return (
     <header
       ref={headerRef}
-      className={`sticky top-0 z-40 flex items-center justify-center bg-background overflow-x-clip transition-all duration-700 ${
+      className={`sticky top-0 z-40 flex items-center justify-center bg-background overflow-x-clip will-change-transform transition-[opacity,transform] duration-700 ${
         ready ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2 pointer-events-none select-none"
       }`}
     >
@@ -156,6 +156,7 @@ export default function Header() {
             </div>
             <div
               aria-hidden="true"
+              style={{ willChange: "width" }}
               className={`pointer-events-none absolute left-1/2 -translate-x-1/2 bottom-0 h-[2px] bg-accent transition-[width] duration-500 ease-out hidden md:block ${
                 scrolled ? "w-[min(100vw,60rem)] xl:w-[min(100vw,72rem)]" : "w-full"
               }`}
