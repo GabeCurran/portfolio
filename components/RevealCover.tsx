@@ -89,7 +89,7 @@ export default function RevealCover() {
     <div
       ref={coverRef}
       aria-hidden="true"
-      className="revealCover fixed left-0 right-0 top-[var(--cover-top,0px)] z-30 h-[var(--cover-height,0px)] bg-background"
+      className="revealCover fixed left-0 right-0 top-(--cover-top,0px) z-30 h-(--cover-height,0px) bg-background"
       style={{ transform: "translateX(0)" }}
     >
       <span className="sr-only">Loading intro…</span>
