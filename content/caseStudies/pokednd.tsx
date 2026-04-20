@@ -161,7 +161,7 @@ const POKEDND_ARCHITECTURE = `flowchart TB
 export const meta: CaseStudyMeta = {
   title: "PokeDnD",
   description:
-    "A Pokémon-themed tabletop RPG. Rewritten from a Python Discord bot into a real-time multiplayer web app with a full battle engine.",
+    "A Pokémon-themed tabletop RPG. A real-time multiplayer web app with a full battle engine.",
   ogImage: "/img/previews/pokednd.png",
   dateRange: "Sep 2025 - Present",
   tagline: "Pokémon combat running on top of D&D 5e.",
