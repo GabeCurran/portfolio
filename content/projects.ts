@@ -16,6 +16,7 @@ export type Project = {
   // not clickable on mobile (accent color); otherwise it's a soft yellow note.
   mobileNote?: { text: string; blocker?: boolean };
   collaborators?: Collaborator[];
+  caseStudySlug?: string; // if set, card renders a "Read case study" link to /projects/<slug>
 };
 
 export const projects: Project[] = [
@@ -61,6 +62,7 @@ export const projects: Project[] = [
     collaborators: [
       { name: "Hunter Gallo", url: "https://github.com/Hgallo42", role: "Founder" },
     ],
+    caseStudySlug: "pokednd",
   },
   {
     title: "Starworks Studios",

@@ -212,4 +212,10 @@ export const brandColor: Record<string, string> = {
   Playwright: "#2EAD33",
   Vitest: "#AABC32",
   Selenium: "#43B02A",
+  Spotify: "#1ED760",
+  YouTube: "#FF0000",
+  "Framer Motion": "#0055FF",
+  Zod: "#3068B7",
+  "Howler.js": "#FFB341",
+  "Owlbear Rodeo": "#F08C49",
 };

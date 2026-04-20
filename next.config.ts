@@ -35,11 +35,6 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: "/projects/:path*",
-        destination: "/",
-        permanent: true,
-      },
-      {
         source: "/projects.html",
         destination: "/",
         permanent: true,

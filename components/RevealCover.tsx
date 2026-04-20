@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import { hasRecentHomeIntro } from "@/lib/homeIntroCookie";
 
 declare global {
   interface Window { __gcHomeTypedDone?: boolean }
@@ -12,7 +13,8 @@ export default function RevealCover() {
   useEffect(() => {
     if (typeof window === "undefined") return;
 
-    if (window.__gcHomeTypedDone) {
+    if (window.__gcHomeTypedDone || hasRecentHomeIntro()) {
+      window.__gcHomeTypedDone = true;
       setHidden(true);
       return;
     }

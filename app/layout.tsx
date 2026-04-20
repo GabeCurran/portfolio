@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
+import NextTopLoader from "nextjs-toploader";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import "./globals.css";
@@ -57,14 +58,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="preload" style={{ opacity: 0 }}>
+    <html lang="en" className="preload">
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${exo.variable} antialiased`}
-        style={{ opacity: 0 }}
       >
-        <Header />
-        {children}
-        <Footer />
+        <NextTopLoader
+          color="#f76a6a"
+          height={2}
+          showSpinner={false}
+          shadow="0 0 8px rgba(247,106,106,0.5)"
+        />
+        <div className="site-content" style={{ opacity: 0 }}>
+          <Header />
+          {children}
+          <Footer />
+        </div>
         <Analytics />
         <SpeedInsights />
         <Script id="remove-preload" strategy="afterInteractive">
@@ -74,8 +82,10 @@ export default function RootLayout({
                 if (!document.documentElement.classList.contains('preload')) return;
                 document.documentElement.classList.remove('preload');
                 try { document.documentElement.classList.add('js'); } catch(e){}
-                try { document.documentElement && (document.documentElement.style.opacity = ''); } catch(e){}
-                try { document.body && (document.body.style.opacity = ''); } catch(e){}
+                try {
+                  var wrap = document.querySelector('.site-content');
+                  if (wrap) wrap.style.opacity = '';
+                } catch(e){}
                 setTimeout(function(){
                   try { window.dispatchEvent(new CustomEvent('site-preload-done')); } catch(e){}
                 }, 200);
