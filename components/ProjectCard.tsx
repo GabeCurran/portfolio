@@ -169,7 +169,7 @@ function CollaboratorCard({ c }: { c: Collaborator }) {
         target="_blank"
         rel="noreferrer"
         className={`group/collab ${base} hover:border-accent/40 hover:bg-foreground/5`}
-        aria-label={`${c.name}${c.role ? ` — ${c.role}` : ""}`}
+        aria-label={`${c.name}${c.role ? `, ${c.role}` : ""}`}
       >
         <FiArrowUpRight
           aria-hidden="true"

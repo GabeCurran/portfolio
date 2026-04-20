@@ -25,7 +25,7 @@ export default function DeferredHomeSections() {
   }, []);
 
   // When we become ready and a hash is present (e.g. /#projects from a case study),
-  // scroll to it — the anchored element didn't exist during the browser's initial scroll.
+  // scroll to it, since the anchored element didn't exist during the browser's initial scroll.
   useEffect(() => {
     if (!ready || typeof window === "undefined") return;
     const hash = window.location.hash;

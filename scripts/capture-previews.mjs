@@ -10,10 +10,10 @@ const projects = [
   { slug: "lingolyrics", url: "https://lingolyrics.vercel.app/" },
   { slug: "starworks", url: "https://starworks-studios.com/" },
   { slug: "blockverse", url: "https://blockverseproductions.com/" },
-  // vy is excluded — the public site is just a password gate; we use a hardcoded
+  // vy is excluded: the public site is just a password gate; we use a hardcoded
   // screenshot of the authenticated flower-journal view at public/img/previews/vy.png
   { slug: "gen1ify", url: "https://modrinth.com/datapack/gen1ify" },
-  // dark is excluded — it's a YouTube short, not a webpage. Thumbnail is
+  // dark is excluded: it's a YouTube short, not a webpage. Thumbnail is
   // pulled from img.youtube.com/vi/6cB0NbZ2yUs/maxresdefault.jpg (one-off).
   { slug: "seniorcare", url: "https://care-of-yore.herokuapp.com/" },
 ];
