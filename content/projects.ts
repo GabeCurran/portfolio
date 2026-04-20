@@ -60,7 +60,7 @@ export const projects: Project[] = [
     image: "/img/previews/pokednd.png",
     mobileNote: { text: "Mobile styling in progress" },
     collaborators: [
-      { name: "Hunter Gallo", url: "https://github.com/Hgallo42", role: "Founder" },
+      { name: "Hunter Gallo", url: "https://www.linkedin.com/in/hunter-gallo-3660aa209/", role: "Founder" },
     ],
     caseStudySlug: "pokednd",
   },
