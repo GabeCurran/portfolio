@@ -38,15 +38,124 @@ html {
   html { overflow-y: scroll; }
 }
 
-html.preload body {
+html.preload .site-content {
   opacity: 0;
 }
 html.preload *, html.preload *::before, html.preload *::after {
   transition: none !important;
 }
-body {
+.site-content {
   transition: opacity 180ms ease-in;
 }
+
+/* Force the top loader to span the full viewport (scrollbar-gutter pushes it in otherwise). */
+#nprogress .bar {
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100vw !important;
+}
+#nprogress .peg {
+  right: 0 !important;
+}
+
+/* Disable scrollbar-gutter reservation while a lightbox is open so it can reach edges. */
+html.lightbox-open {
+  scrollbar-gutter: auto;
+}
+
+/* Full-viewport lightbox — bypass scrollbar-gutter so backdrop covers edges. */
+.screenshot-lightbox {
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  background: rgba(0, 0, 0, 0);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  transition: background-color 200ms ease, backdrop-filter 200ms ease,
+    -webkit-backdrop-filter 200ms ease;
+}
+.screenshot-lightbox[data-phase="open"] {
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.screenshot-lightbox[data-phase="closing"] {
+  background: rgba(0, 0, 0, 0);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+}
+.screenshot-lightbox-figure {
+  opacity: 0;
+  transform: scale(0.94);
+  transition: opacity 200ms ease, transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: opacity, transform;
+}
+.screenshot-lightbox[data-phase="open"] .screenshot-lightbox-figure {
+  opacity: 1;
+  transform: scale(1);
+}
+.screenshot-lightbox[data-phase="closing"] .screenshot-lightbox-figure {
+  opacity: 0;
+  transform: scale(0.96);
+}
+.screenshot-lightbox .lightbox-btn {
+  opacity: 0;
+  transition: opacity 180ms ease, background-color 180ms ease,
+    border-color 180ms ease, color 180ms ease;
+}
+.screenshot-lightbox[data-phase="open"] .lightbox-btn {
+  opacity: 1;
+}
+
+/* Swap animation for the image/caption when navigating prev/next. */
+@keyframes lightboxSwap {
+  0% {
+    opacity: 0;
+    transform: translateY(6px) scale(0.985);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+.screenshot-lightbox[data-phase="open"] .lightbox-swap {
+  animation: lightboxSwap 260ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .screenshot-lightbox[data-phase="open"] .lightbox-swap {
+    animation: none;
+  }
+}
+
+/* Lightbox controls — match the site's pill-button aesthetic. */
+.lightbox-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  border: 1px solid color-mix(in srgb, var(--foreground) 20%, transparent);
+  background: color-mix(in srgb, var(--foreground) 3%, transparent);
+  color: color-mix(in srgb, var(--foreground) 85%, transparent);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease;
+  cursor: pointer;
+}
+.lightbox-btn:hover {
+  background: color-mix(in srgb, var(--foreground) 7%, transparent);
+  border-color: color-mix(in srgb, var(--foreground) 35%, transparent);
+  color: var(--accent);
+}
+
 
 .js .originalParagraph { display: none; }
 
@@ -260,4 +369,97 @@ body {
 .skill-chip:hover {
   border-color: var(--skill-color) !important;
   color: var(--skill-color) !important;
+}
+
+/* --- Case study prose --------------------------------------------------
+   Scoped typography for case study bodies. :where() keeps specificity at
+   zero so any Tailwind utility or inline override wins. */
+.case-study-prose {
+  color: var(--foreground);
+}
+.case-study-prose :where(h2) {
+  font-size: clamp(1.5rem, 1.1rem + 1.4vw, 2rem);
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: -0.01em;
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+.case-study-prose :where(h3) {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.case-study-prose :where(p) {
+  color: color-mix(in srgb, var(--foreground) 88%, transparent);
+  line-height: 1.65;
+  margin: 0.75rem 0;
+}
+.case-study-prose :where(ul, ol) {
+  margin: 0.75rem 0 0.75rem 1.25rem;
+  padding-left: 0.25rem;
+}
+.case-study-prose :where(ul) { list-style: disc; }
+.case-study-prose :where(ol) { list-style: decimal; }
+.case-study-prose :where(li) {
+  margin: 0.35rem 0;
+  color: color-mix(in srgb, var(--foreground) 88%, transparent);
+  line-height: 1.6;
+}
+.case-study-prose :where(p, li, blockquote, h2, h3) :where(a) {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: color-mix(in srgb, var(--accent) 45%, transparent);
+  transition: text-decoration-color 180ms ease;
+}
+.case-study-prose :where(p, li, blockquote, h2, h3) :where(a:hover) {
+  text-decoration-color: var(--accent);
+}
+.case-study-prose :where(code) {
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 0.9em;
+  padding: 0.12em 0.35em;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--foreground) 8%, transparent);
+  border: 1px solid color-mix(in srgb, var(--foreground) 12%, transparent);
+  /* Disable programming ligatures so === stays as three glyphs, not one bar. */
+  font-variant-ligatures: none;
+  font-feature-settings: "liga" 0, "calt" 0;
+}
+.case-study-prose :where(pre) {
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+}
+.case-study-prose :where(pre code) {
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-size: inherit;
+}
+.case-study-prose :where(blockquote) {
+  border-left: 3px solid color-mix(in srgb, var(--accent) 60%, transparent);
+  padding: 0.25rem 0 0.25rem 1rem;
+  margin: 1rem 0;
+  color: color-mix(in srgb, var(--foreground) 75%, transparent);
+  font-style: italic;
+}
+.case-study-prose :where(img) {
+  border-radius: 0.5rem;
+  border: 1px solid color-mix(in srgb, var(--foreground) 15%, transparent);
+}
+
+/* Fullscreen backdrop for diagrams — keep dark gray, not browser default black. */
+:fullscreen,
+:fullscreen::backdrop {
+  background-color: #2b2b2b;
+}
+/* Size the diagram container to the viewport via CSS so the dimensional change
+   applies/reverts in lockstep with the browser's fullscreen state — avoids the
+   one-frame layout jump caused by JS-state-driven sizing lagging fullscreenchange. */
+.mermaid-fs-target:fullscreen {
+  width: 100vw;
+  height: 100vh;
+  border: none;
+  border-radius: 0;
 }

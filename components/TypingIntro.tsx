@@ -2,6 +2,7 @@
 import { useEffect, useMemo, useRef } from "react";
 import { INTRO_PARAGRAPHS, HIGHLIGHT_TERMS, segmentParagraph, buildParagraphHTML, LINKS } from "@/content/typingIntro";
 import { startLifespanSecondsTicker, estimateRemainingSeconds, formatInt, parseDob } from "./age";
+import { hasRecentHomeIntro, markHomeIntroSeen } from "@/lib/homeIntroCookie";
 
 declare global {
   interface Window { __gcTypingRunning?: boolean; __gcHomeTypedDone?: boolean }
@@ -18,6 +19,10 @@ export default function TypingIntro() {
     const cleanups: Array<() => void> = [];
     let runCleanups: Array<() => void> = [];
     let completed = false;
+    // Honor the 1-hour cookie: treat as already done so we render the final state immediately.
+    if (typeof window !== "undefined" && !window.__gcHomeTypedDone && hasRecentHomeIntro()) {
+      window.__gcHomeTypedDone = true;
+    }
     // If already typed in this session, render built content immediately
     const originalParagraphInit = containerRef.current?.querySelector<HTMLElement>(".originalParagraph");
     const typedParagraphsInit = containerRef.current?.querySelectorAll<HTMLElement>(".typedParagraph");
@@ -94,6 +99,7 @@ export default function TypingIntro() {
       }
       if (typeof window !== "undefined") {
         window.__gcHomeTypedDone = true;
+        markHomeIntroSeen();
         window.dispatchEvent(new CustomEvent("home-typing-done"));
       }
     };
@@ -249,6 +255,7 @@ export default function TypingIntro() {
       });
       if (typeof window !== "undefined") {
         window.__gcHomeTypedDone = true;
+        markHomeIntroSeen();
         window.dispatchEvent(new CustomEvent("home-typing-done"));
       }
     };

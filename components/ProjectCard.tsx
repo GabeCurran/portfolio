@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { FiArrowUpRight } from "react-icons/fi";
 import type { Collaborator, Project } from "@/content/projects";
 
@@ -99,6 +100,23 @@ export default function ProjectCard({ project: p }: { project: Project }) {
   return (
     <article className={outerClasses}>
       {clickable}
+      {p.caseStudySlug && (
+        <Link
+          href={`/projects/${p.caseStudySlug}`}
+          className="group/case absolute z-10 inline-flex items-center gap-1 text-xs font-medium text-foreground transition-colors px-2.5 py-1 rounded-lg border border-foreground/10 bg-foreground/[0.02] hover:border-accent/40 hover:bg-foreground/5
+                     right-5 sm:right-6 lg:right-4 xl:right-5
+                     top-[10.4rem] sm:top-[11.65rem] md:top-[12.65rem] lg:top-[10.15rem] xl:top-[11.4rem]"
+        >
+          <span className="underline underline-offset-4 decoration-foreground/30 group-hover/case:decoration-accent transition-colors">
+            Read case study
+          </span>
+          <FiArrowUpRight
+            aria-hidden="true"
+            size={12}
+            className="text-foreground/35 transition-all duration-200 group-hover/case:text-accent group-hover/case:translate-x-0.5 group-hover/case:-translate-y-0.5"
+          />
+        </Link>
+      )}
       {p.collaborators && p.collaborators.length > 0 && (
         <Collaborators people={p.collaborators} />
       )}
