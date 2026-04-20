@@ -149,7 +149,7 @@ export default function MermaidDiagram({
 
   // Re-fit after entering or exiting fullscreen so the diagram fills the new size.
   // Use rAF (no animation) so the diagram is already centered the first frame
-  // the new container size is painted — no visible "snap into place" movement.
+  // the new container size is painted, so there's no visible "snap into place" movement.
   useEffect(() => {
     const handler = () => {
       setIsFullscreen(!!document.fullscreenElement);

@@ -121,7 +121,7 @@ const POKEDND_ARCHITECTURE = `flowchart TB
         SSE["SSE endpoints"]
     end
 
-    %% === Data + External (floating — dagre places near callers) ===
+    %% === Data + External (floating, dagre places near callers) ===
     DB[("PostgreSQL")]
     OryDisc["Ory Cloud<br>Discord OIDC"]
     Spot["Spotify Web API"]
@@ -180,8 +180,8 @@ export default function PokeDnDCaseStudy() {
         secondaryLink={meta.secondaryLink}
         previewClass={meta.heroPreviewClass}
         coverImage={{
-          src: "/img/previews/pokednd.png",
-          alt: "PokeDnD cover",
+          src: "/img/pokednd/home.png",
+          alt: "PokeDnD landing page",
           width: 1600,
           height: 900,
         }}
@@ -549,7 +549,7 @@ export default function PokeDnDCaseStudy() {
             has been reworked more than anything else in the app. I&apos;ve done multiple
             full UI rewrites and dice reworks. I used to
             think this meant I was failing to design it right up front, but
-            I think the real lesson is the opposite — multi-actor turn state
+            I think the real lesson is the opposite: multi-actor turn state
             is genuinely hard to design before you&apos;ve seen real players
             use it. Iterating on it with the group at the table was way
             faster than trying to plan the perfect version on the first pass.
@@ -599,7 +599,7 @@ export default function PokeDnDCaseStudy() {
             {
               src: "/img/pokednd/trainerPageBottom.png",
               alt: "Trainer class features and graveyard",
-              caption: "Trainer sheet, continued — class features, active effects, and graveyard.",
+              caption: "Trainer sheet, continued: class features, active effects, and graveyard.",
               width: 1600,
               height: 900,
             },
@@ -634,7 +634,7 @@ export default function PokeDnDCaseStudy() {
             {
               src: "/img/pokednd/roll.png",
               alt: "Ability check dice roll",
-              caption: "Ability check modal — every roll shows performer, dice, modifier, and total.",
+              caption: "Ability check modal: every roll shows performer, dice, modifier, and total.",
               width: 1600,
               height: 900,
             },
@@ -655,7 +655,7 @@ export default function PokeDnDCaseStudy() {
             {
               src: "/img/pokednd/pokednd7.png",
               alt: "Trainers overview",
-              caption: "Campaign trainer overview — players and NPCs with level and HP at a glance.",
+              caption: "Campaign trainer overview: players and NPCs with level and HP at a glance.",
               width: 1600,
               height: 900,
             },

@@ -64,7 +64,7 @@ html.lightbox-open {
   scrollbar-gutter: auto;
 }
 
-/* Full-viewport lightbox — bypass scrollbar-gutter so backdrop covers edges. */
+/* Full-viewport lightbox: bypass scrollbar-gutter so backdrop covers edges. */
 .screenshot-lightbox {
   top: 0 !important;
   left: 0 !important;
@@ -134,7 +134,7 @@ html.lightbox-open {
   }
 }
 
-/* Lightbox controls — match the site's pill-button aesthetic. */
+/* Lightbox controls: match the site's pill-button aesthetic. */
 .lightbox-btn {
   display: inline-flex;
   align-items: center;
@@ -449,13 +449,13 @@ html.lightbox-open {
   border: 1px solid color-mix(in srgb, var(--foreground) 15%, transparent);
 }
 
-/* Fullscreen backdrop for diagrams — keep dark gray, not browser default black. */
+/* Fullscreen backdrop for diagrams: keep dark gray, not browser default black. */
 :fullscreen,
 :fullscreen::backdrop {
   background-color: #2b2b2b;
 }
 /* Size the diagram container to the viewport via CSS so the dimensional change
-   applies/reverts in lockstep with the browser's fullscreen state — avoids the
+   applies/reverts in lockstep with the browser's fullscreen state, avoiding the
    one-frame layout jump caused by JS-state-driven sizing lagging fullscreenchange. */
 .mermaid-fs-target:fullscreen {
   width: 100vw;

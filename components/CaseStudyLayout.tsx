@@ -198,7 +198,7 @@ import { brandColor, type Skill } from "@/content/skills";
 export interface StackChipsProps {
   /** Optional grouped layout (mirrors the home skills section). */
   groups?: { title: string; items: Skill[] }[];
-  /** Flat list — used when a single ungrouped row is enough. */
+  /** Flat list, used when a single ungrouped row is enough. */
   items?: Skill[];
 }
 
