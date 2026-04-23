@@ -37,14 +37,17 @@ export default function DeferredHomeSections() {
     });
   }, [ready]);
 
-  if (!ready) return null;
-
   return (
-    <>
-  <Divider className="mx-auto sectionContainer" />
+    <div
+      aria-hidden={!ready}
+      className={`transition-opacity duration-500 ${
+        ready ? "opacity-100" : "opacity-0 pointer-events-none"
+      }`}
+    >
+      <Divider className="mx-auto sectionContainer" />
       <ProjectsGrid />
-  <Divider className="mx-auto sectionContainer" />
+      <Divider className="mx-auto sectionContainer" />
       <SkillsSection />
-    </>
+    </div>
   );
 }

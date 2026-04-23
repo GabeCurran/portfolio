@@ -59,11 +59,6 @@ html.preload *, html.preload *::before, html.preload *::after {
   right: 0 !important;
 }
 
-/* Disable scrollbar-gutter reservation while a lightbox is open so it can reach edges. */
-html.lightbox-open {
-  scrollbar-gutter: auto;
-}
-
 /* Full-viewport lightbox: bypass scrollbar-gutter so backdrop covers edges. */
 .screenshot-lightbox {
   top: 0 !important;
