@@ -164,7 +164,7 @@ export const meta: CaseStudyMeta = {
     "A Pokémon-themed tabletop RPG. A real-time multiplayer web app with a full battle engine.",
   ogImage: "/img/previews/pokednd.png",
   dateRange: "Sep 2025 - Present",
-  tagline: "Pokémon combat running on top of D&D 5e.",
+  tagline: "Pokémon combat running on top of the D&D 5e ruleset",
   primaryLink: { label: "Live site", href: "https://pokednd.live/" },
   heroPreviewClass: "preview-pokednd",
 };
