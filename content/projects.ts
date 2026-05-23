@@ -21,19 +21,39 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    title: "LingoLyrics",
-    url: "https://lingolyrics.vercel.app/",
+    title: "PokeDnD",
+    url: "https://pokednd.live/",
     description:
-      "Lyric translations and annotations, powered by AI. Fetches synced lyrics for a song and lets you translate and annotate them line by line.",
-    dateRange: "Jul 2025 - Present",
-    tech: ["TypeScript", "React", "Next.js", "Tailwind", "Claude API", "OpenAI API", "LRCLib"],
-    preview: "preview-lingolyrics",
-    image: "/img/previews/lingolyrics.png",
+      "A Pokémon-themed tabletop RPG web app with real-time battles, dice rolls, music sync, a full Pokédex, and a trainer and campaign management system.",
+    dateRange: "Sep 2025 - Present",
+    tech: ["TypeScript", "React", "Next.js", "Tailwind", "Prisma", "PostgreSQL", "Ory", "SSE"],
+    preview: "preview-pokednd",
+    image: "/img/previews/pokednd.png",
+    mobileNote: { text: "Mobile styling in progress" },
     collaborators: [
-      { name: "Sylas Serpens", url: "https://www.linkedin.com/in/sylasserpens/" },
-      { name: "Brandon White", url: "https://www.linkedin.com/in/brandon-white-drexel/" },
-      { name: "Jae Lee", url: "https://www.linkedin.com/in/jae-lee4578/" },
+      { name: "Hunter Gallo", url: "https://www.linkedin.com/in/hunter-gallo-3660aa209/", role: "Founder" },
     ],
+    caseStudySlug: "pokednd",
+  },
+  {
+    title: "Junjo",
+    url: "https://docs.junjo.io/",
+    description:
+      "An open-source SDK and hosted platform I'm building that gives multiplayer games drop-in groups, ranks, and permissions (guilds, clans, factions) without each studio rebuilding them. It plugs into a game's existing auth instead of replacing it, and ships with a typed TypeScript SDK, React hooks, a Roblox client, an admin dashboard, and docs.",
+    dateRange: "May 2026 - Present",
+    tech: ["TypeScript", "Hono", "Prisma", "PostgreSQL", "SSE", "Docker", "Railway"],
+    preview: "preview-junjo",
+    image: "/img/previews/junjo.png",
+  },
+  {
+    title: "Reibu",
+    url: "https://reibu.net/",
+    description:
+      "A real-time collaborative listening room I built: synced YouTube and SoundCloud playback, a DJ booth, queue voting, playlists, and chat. It runs on my own Junjo SDK for rooms and roles, has end-to-end encrypted chat and DMs (Olm) with multi-device sync, and analyzes each track's audio to drive a beat-reactive equalizer.",
+    dateRange: "May 2026 - Present",
+    tech: ["TypeScript", "Next.js", "Prisma", "PostgreSQL", "SSE", "Olm", "Ory Kratos"],
+    preview: "preview-reibu",
+    image: "/img/previews/reibu.png",
   },
   {
     title: "Revelations",
@@ -50,19 +70,19 @@ export const projects: Project[] = [
     ],
   },
   {
-    title: "PokeDnD",
-    url: "https://pokednd.live/",
+    title: "LingoLyrics",
+    url: "https://lingolyrics.vercel.app/",
     description:
-      "A Pokémon-themed tabletop RPG web app with real-time battles, dice rolls, music sync, a full Pokédex, and a trainer and campaign management system.",
-    dateRange: "Sep 2025 - Present",
-    tech: ["TypeScript", "React", "Next.js", "Tailwind", "Prisma", "PostgreSQL", "Ory", "SSE"],
-    preview: "preview-pokednd",
-    image: "/img/previews/pokednd.png",
-    mobileNote: { text: "Mobile styling in progress" },
+      "Lyric translations and annotations, powered by AI. Fetches synced lyrics for a song and lets you translate and annotate them line by line.",
+    dateRange: "Jul 2025 - Present",
+    tech: ["TypeScript", "React", "Next.js", "Tailwind", "Claude API", "OpenAI API", "LRCLib"],
+    preview: "preview-lingolyrics",
+    image: "/img/previews/lingolyrics.png",
     collaborators: [
-      { name: "Hunter Gallo", url: "https://www.linkedin.com/in/hunter-gallo-3660aa209/", role: "Founder" },
+      { name: "Sylas Serpens", url: "https://www.linkedin.com/in/sylasserpens/" },
+      { name: "Brandon White", url: "https://www.linkedin.com/in/brandon-white-drexel/" },
+      { name: "Jae Lee", url: "https://www.linkedin.com/in/jae-lee4578/" },
     ],
-    caseStudySlug: "pokednd",
   },
   {
     title: "Starworks Studios",

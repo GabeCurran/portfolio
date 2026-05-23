@@ -294,6 +294,20 @@ html.preload *, html.preload *::before, html.preload *::after {
     linear-gradient(135deg, #262626, #2b2b2b);
 }
 
+.preview-junjo {
+  background:
+    radial-gradient(circle, rgba(99, 102, 241, 0.13), transparent 60%),
+    radial-gradient(circle, rgba(34, 211, 238, 0.10), transparent 60%),
+    linear-gradient(135deg, #26262a, #2b2b2b);
+}
+
+.preview-reibu {
+  background:
+    radial-gradient(circle, rgba(168, 85, 247, 0.13), transparent 60%),
+    radial-gradient(circle, rgba(99, 102, 241, 0.10), transparent 60%),
+    linear-gradient(135deg, #262629, #2b2b2b);
+}
+
 .preview-revelations {
   background:
     radial-gradient(circle, rgba(139, 92, 246, 0.12), transparent 60%),

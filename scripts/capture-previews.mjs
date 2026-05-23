@@ -6,6 +6,8 @@ const CHROME_PATH = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
 
 const projects = [
   { slug: "pokednd", url: "https://pokednd.live/" },
+  { slug: "junjo", url: "https://docs.junjo.io/" },
+  { slug: "reibu", url: "https://reibu.net/" },
   { slug: "revelations", url: "https://revelations.quest/" },
   { slug: "lingolyrics", url: "https://lingolyrics.vercel.app/" },
   { slug: "starworks", url: "https://starworks-studios.com/" },
