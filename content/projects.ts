@@ -21,31 +21,6 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    title: "PokeDnD",
-    url: "https://pokednd.live/",
-    description:
-      "A Pokémon-themed tabletop RPG web app with real-time battles, dice rolls, music sync, a full Pokédex, and a trainer and campaign management system.",
-    dateRange: "Sep 2025 - Present",
-    tech: ["TypeScript", "React", "Next.js", "Tailwind", "Prisma", "PostgreSQL", "Ory", "SSE"],
-    preview: "preview-pokednd",
-    image: "/img/previews/pokednd.png",
-    mobileNote: { text: "Mobile styling in progress" },
-    collaborators: [
-      { name: "Hunter Gallo", url: "https://www.linkedin.com/in/hunter-gallo-3660aa209/", role: "Founder" },
-    ],
-    caseStudySlug: "pokednd",
-  },
-  {
-    title: "Junjo",
-    url: "https://docs.junjo.io/",
-    description:
-      "An open-source SDK and hosted platform I'm building that gives multiplayer games drop-in groups, ranks, and permissions (guilds, clans, factions) without each studio rebuilding them. It plugs into a game's existing auth instead of replacing it, and ships with a typed TypeScript SDK, React hooks, a Roblox client, an admin dashboard, and docs.",
-    dateRange: "May 2026 - Present",
-    tech: ["TypeScript", "Hono", "Prisma", "PostgreSQL", "SSE", "Docker", "Railway"],
-    preview: "preview-junjo",
-    image: "/img/previews/junjo.png",
-  },
-  {
     title: "Reibu",
     url: "https://reibu.net/",
     description:
@@ -54,6 +29,16 @@ export const projects: Project[] = [
     tech: ["TypeScript", "Next.js", "Prisma", "PostgreSQL", "SSE", "Olm", "Ory Kratos"],
     preview: "preview-reibu",
     image: "/img/previews/reibu.png",
+  },
+  {
+    title: "Junjo",
+    url: "https://docs.junjo.io/",
+    description:
+      "A game-backend platform and SDK I'm building that gives multiplayer games drop-in groups, ranks, and permissions (guilds, clans, factions) without each studio rebuilding them. It plugs into a game's existing auth instead of replacing it, and ships with a typed TypeScript SDK, React hooks, a Roblox client, an admin dashboard, and docs.",
+    dateRange: "May 2026 - Present",
+    tech: ["TypeScript", "Hono", "Prisma", "PostgreSQL", "SSE", "Docker", "Railway"],
+    preview: "preview-junjo",
+    image: "/img/previews/junjo.png",
   },
   {
     title: "Revelations",
@@ -68,6 +53,21 @@ export const projects: Project[] = [
     collaborators: [
       { name: "Shane Donnelly", url: "https://www.linkedin.com/in/shane-donnelly-53b993276/" },
     ],
+  },
+  {
+    title: "PokeDnD",
+    url: "https://pokednd.live/",
+    description:
+      "A Pokémon-themed tabletop RPG web app with real-time battles, dice rolls, music sync, a full Pokédex, and a trainer and campaign management system.",
+    dateRange: "Sep 2025 - Present",
+    tech: ["TypeScript", "React", "Next.js", "Tailwind", "Prisma", "PostgreSQL", "Ory", "SSE"],
+    preview: "preview-pokednd",
+    image: "/img/previews/pokednd.png",
+    mobileNote: { text: "Mobile styling in progress" },
+    collaborators: [
+      { name: "Hunter Gallo", url: "https://www.linkedin.com/in/hunter-gallo-3660aa209/", role: "Founder" },
+    ],
+    caseStudySlug: "pokednd",
   },
   {
     title: "LingoLyrics",
