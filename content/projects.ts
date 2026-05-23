@@ -24,7 +24,7 @@ export const projects: Project[] = [
     title: "Reibu",
     url: "https://reibu.net/",
     description:
-      "A real-time collaborative listening room I built: synced YouTube and SoundCloud playback, a DJ booth, queue voting, playlists, and chat. It runs on my own Junjo SDK for rooms and roles, has end-to-end encrypted chat and DMs (Olm) with multi-device sync, and uses FFT-based audio analysis to drive a beat-reactive equalizer.",
+      "A real-time collaborative listening room I built: synced YouTube and SoundCloud playback, a DJ booth, queue voting, playlists, and chat. It runs on my own Junjo SDK for rooms and roles, has end-to-end encrypted chat and DMs (Olm) with multi-device sync, and uses FFT-based audio analysis to drive a beat-reactive equalizer. It also has a deep theming system: a live editor for custom color palettes, fonts, backgrounds, and notification sounds, plus a gallery where people share their themes.",
     dateRange: "May 2026 - Present",
     tech: ["TypeScript", "Next.js", "Prisma", "PostgreSQL", "SSE", "Olm", "Ory Kratos"],
     preview: "preview-reibu",
