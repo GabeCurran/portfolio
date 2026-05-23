@@ -24,7 +24,7 @@ export const projects: Project[] = [
     title: "Reibu",
     url: "https://reibu.net/",
     description:
-      "A real-time collaborative listening room I built: synced YouTube and SoundCloud playback, a DJ booth, queue voting, playlists, and chat. It runs on my own Junjo SDK for rooms and roles, has end-to-end encrypted chat and DMs (Olm) with multi-device sync, and analyzes each track's audio to drive a beat-reactive equalizer.",
+      "A real-time collaborative listening room I built: synced YouTube and SoundCloud playback, a DJ booth, queue voting, playlists, and chat. It runs on my own Junjo SDK for rooms and roles, has end-to-end encrypted chat and DMs (Olm) with multi-device sync, and uses FFT-based audio analysis to drive a beat-reactive equalizer.",
     dateRange: "May 2026 - Present",
     tech: ["TypeScript", "Next.js", "Prisma", "PostgreSQL", "SSE", "Olm", "Ory Kratos"],
     preview: "preview-reibu",
@@ -98,19 +98,6 @@ export const projects: Project[] = [
     ],
   },
   {
-    title: "Blockverse",
-    url: "https://blockverseproductions.com/",
-    description:
-      "The marketing site for a Roblox game, built for Starworks under a local contract. It's built with a custom CMS and admin dashboard where authorized editors can update every page section, upload images, and review contact submissions. Uses Supabase with RLS and ISR.",
-    dateRange: "Mar 2026",
-    tech: ["TypeScript", "React", "Next.js", "Tailwind", "Supabase"],
-    preview: "preview-blockverse",
-    image: "/img/previews/blockverse.png",
-    collaborators: [
-      { name: "Starworks", url: "https://starworks-studios.com/team" },
-    ],
-  },
-  {
     title: "Vy",
     url: "https://vy.gabecurran.me/",
     description:
@@ -139,19 +126,5 @@ export const projects: Project[] = [
     tech: ["C", "Plan 9", "Raspberry Pi", "I2C", "GPIO"],
     preview: "preview-dark",
     image: "/img/previews/dark.png",
-  },
-  {
-    title: "Senior Care App",
-    url: "https://care-of-yore.herokuapp.com/",
-    description:
-      "A senior-care management app with roles, permissions, data management, etc. My first real full-stack project.",
-    dateRange: "Dec 2021",
-    tech: ["PHP", "Laravel", "MySQL", "Tailwind", "JavaScript"],
-    preview: "preview-seniorcare",
-    image: "/img/previews/seniorcare.png",
-    collaborators: [
-      { name: "Andrew Matt", url: "https://www.linkedin.com/in/andrew-matt/" },
-      { name: "Spencer Heffley", url: "https://www.linkedin.com/in/spheffley/" },
-    ],
   },
 ];
