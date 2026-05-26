@@ -11,14 +11,14 @@ export const HIGHLIGHT_TERMS: HighlightTerms = [
   "WebstaurantStore",
   "Reibu",
   "Junjo",
-  "Pokémon D&D",
-  "Revelations",
   "connect",
 ];
 
 export const LINKS: LinkMap = {
   "Drexel University": { href: "https://www.drexel.edu/", className: "college drexel", target: "_blank", rel: "noreferrer" },
   "WebstaurantStore": { href: "https://www.webstaurantstore.com/", className: "webstaurant", target: "_blank", rel: "noreferrer" },
+  "Reibu": { href: "https://reibu.net/", target: "_blank", rel: "noreferrer" },
+  "Junjo": { href: "https://docs.junjo.io/", target: "_blank", rel: "noreferrer" },
 };
 
 // Custom inline tokens that render as raw HTML placeholders
@@ -27,7 +27,7 @@ const CUSTOM_TOKENS: Record<string, string> = {
 };
 
 export const INTRO_PARAGRAPHS: string[] = [
-  "I'm a software engineer who works on web apps, games, and internal data tools. By day I'm a database engineer at WebstaurantStore, where I help maintain a lot of our web and database systems. Outside of work I build full-stack, real-time products. Lately that's Reibu, a collaborative listening room with end-to-end encryption, and Junjo, a backend platform for multiplayer games. There's plenty more below too, from a Pokémon D&D app to Revelations, a browser-based dueling game. Reach out within the next [[LIFE_SECONDS]] seconds or so if you'd like to connect!",
+  "I'm a software engineer who works on web apps, games, and internal data tools. By day I'm a database engineer at WebstaurantStore, where I help maintain a lot of our web and database systems. Outside of work I build full-stack, real-time products. Recently I've been working a lot on Reibu, a collaborative listening room with E2E encryption, and Junjo, a backend platform for multiplayer games and websites. I have a lot of other projects too so feel free to check them out below! Reach out within the next [[LIFE_SECONDS]] seconds or so if you'd like to connect!",
 ];
 
 export function escapeHtml(s: string): string {
