@@ -9,6 +9,8 @@ export const HIGHLIGHT_TERMS: HighlightTerms = [
   "internal data tools",
   "database engineer",
   "WebstaurantStore",
+  "Reibu",
+  "Junjo",
   "Pokémon D&D",
   "Revelations",
   "connect",
@@ -25,7 +27,7 @@ const CUSTOM_TOKENS: Record<string, string> = {
 };
 
 export const INTRO_PARAGRAPHS: string[] = [
-  "I'm a software engineer who works on web apps, games, and internal data tools. I'm currently a database engineer at WebstaurantStore, where I help maintain a lot of our web and database systems. Outside of work I'm building a Pokémon D&D web app with a friend, and a web-based PvP dueling game called Revelations. Feel free to check out my projects below, and reach out within the next [[LIFE_SECONDS]] seconds or so if you'd like to connect!",
+  "I'm a software engineer who works on web apps, games, and internal data tools. By day I'm a database engineer at WebstaurantStore, where I help maintain a lot of our web and database systems. Outside of work I build full-stack, real-time products. Lately that's Reibu, a collaborative listening room with end-to-end encryption, and Junjo, a backend platform for multiplayer games. There's plenty more below too, from a Pokémon D&D app to Revelations, a browser-based dueling game. Reach out within the next [[LIFE_SECONDS]] seconds or so if you'd like to connect!",
 ];
 
 export function escapeHtml(s: string): string {
