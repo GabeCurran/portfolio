@@ -197,6 +197,8 @@ html.preload *, html.preload *::before, html.preload *::after {
 .groupMates:hover, .groupMates:active { color: #a33131; }
 .webstaurant { text-decoration: none; color: var(--foreground); }
 .webstaurant:hover, .webstaurant:active { color: #298200; }
+.reibu, .junjo { text-decoration: none; color: var(--foreground); }
+.reibu:hover, .reibu:active, .junjo:hover, .junjo:active { color: #8b1e23; }
 
 .typedParagraph a, h2 a { text-decoration: underline; text-underline-offset: 4px; }
 
@@ -252,6 +254,7 @@ html.preload *, html.preload *::before, html.preload *::after {
 
 .highlighted a.college.drexel { text-decoration: none; }
 .highlighted a.webstaurant { text-decoration: none; }
+.highlighted a.reibu, .highlighted a.junjo { text-decoration: none; }
 
 /* Stabilize digit width for the life-seconds counter to avoid layout shift */
 .life-seconds {
