@@ -7,6 +7,7 @@ export const HIGHLIGHT_TERMS: HighlightTerms = [
   "web apps",
   "games",
   "internal data tools",
+  "full-stack",
   "database engineer",
   "WebstaurantStore",
   "Reibu",
