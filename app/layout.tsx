@@ -8,6 +8,15 @@ import "./globals.css";
 import { exo } from "./fonts";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import JsonLd from "../components/JsonLd";
+import {
+  SITE_URL,
+  SITE_NAME,
+  DEFAULT_DESCRIPTION,
+  DEFAULT_OG_IMAGE,
+  personJsonLd,
+  websiteJsonLd,
+} from "../lib/seo";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,24 +33,37 @@ export const metadata: Metadata = {
     default: "Gabe Curran",
     template: "%s | Gabe Curran",
   },
-  description: "Portfolio of Gabe Curran",
+  description: DEFAULT_DESCRIPTION,
   icons: {
     icon: "/img/jarvis.png",
     shortcut: "/img/jarvis.png",
     apple: "/img/jarvis.png",
   },
-  metadataBase: new URL("https://gabecurran.me"),
+  metadataBase: new URL(SITE_URL),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "Gabe Curran",
-    description: "Portfolio of Gabe Curran",
-    url: "https://gabecurran.me",
-    siteName: "Gabe Curran",
+    description: DEFAULT_DESCRIPTION,
+    url: SITE_URL,
+    siteName: SITE_NAME,
     type: "website",
+    images: [{ url: DEFAULT_OG_IMAGE }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Gabe Curran",
-    description: "Portfolio of Gabe Curran",
+    description: DEFAULT_DESCRIPTION,
+    images: [DEFAULT_OG_IMAGE],
+  },
+  // Search-engine verification.
+  // Google: already verified via DNS/domain in Search Console — no meta tag needed.
+  // Bing: paste your Bing Webmaster Tools token between the quotes to verify.
+  verification: {
+    other: {
+      "msvalidate.01": "",
+    },
   },
 };
 
@@ -62,6 +84,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${exo.variable} antialiased`}
       >
+        <JsonLd data={[personJsonLd(), websiteJsonLd()]} />
         <NextTopLoader
           color="#f76a6a"
           height={2}

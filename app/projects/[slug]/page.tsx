@@ -5,6 +5,8 @@ import {
   BackToProjects,
 } from "@/components/CaseStudyLayout";
 import { caseStudies, getCaseStudySlugs } from "@/content/caseStudies";
+import JsonLd from "@/components/JsonLd";
+import { absoluteUrl, breadcrumbJsonLd, caseStudyJsonLd } from "@/lib/seo";
 
 type Params = { slug: string };
 
@@ -22,14 +24,18 @@ export async function generateMetadata({
   if (!entry) return {};
   const { title, description, ogImage } = entry.meta;
   const fullTitle = `${title} | Gabe Curran`;
+  const canonical = `/projects/${slug}`;
   return {
     title,
     description,
+    alternates: {
+      canonical,
+    },
     openGraph: {
       title: fullTitle,
       description,
       type: "article",
-      url: `https://gabecurran.me/projects/${slug}`,
+      url: absoluteUrl(canonical),
       images: ogImage ? [{ url: ogImage }] : undefined,
     },
     twitter: {
@@ -50,8 +56,14 @@ export default async function CaseStudyPage({
   const entry = caseStudies[slug];
   if (!entry) notFound();
   const { Component } = entry;
+  const breadcrumb = breadcrumbJsonLd([
+    { name: "Home", path: "/" },
+    { name: "Projects", path: "/#projects" },
+    { name: entry.meta.title, path: `/projects/${slug}` },
+  ]);
   return (
     <>
+      <JsonLd data={[breadcrumb, caseStudyJsonLd(entry.meta, slug)]} />
       <CaseStudyArticle>
         <Component />
       </CaseStudyArticle>
