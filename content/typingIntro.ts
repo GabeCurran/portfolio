@@ -19,7 +19,7 @@ export const LINKS: LinkMap = {
   "Drexel University": { href: "https://www.drexel.edu/", className: "college drexel", target: "_blank", rel: "noreferrer" },
   "WebstaurantStore": { href: "https://www.webstaurantstore.com/", className: "webstaurant", target: "_blank", rel: "noreferrer" },
   "Reibu": { href: "https://reibu.net/", className: "reibu", target: "_blank", rel: "noreferrer" },
-  "Junjo": { href: "https://docs.junjo.io/", className: "junjo", target: "_blank", rel: "noreferrer" },
+  "Junjo": { href: "https://junjo.io/", className: "junjo", target: "_blank", rel: "noreferrer" },
 };
 
 // Custom inline tokens that render as raw HTML placeholders
