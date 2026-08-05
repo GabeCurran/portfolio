@@ -18,7 +18,9 @@ export const DEFAULT_DESCRIPTION =
 
 // Site-wide social profile image used as the default OG/Twitter image.
 // No dedicated home social image exists, so reuse an existing project preview.
-export const DEFAULT_OG_IMAGE = "/img/previews/reibu.png";
+// Junjo's landing page, not Reibu: reibu.net is auth-walled, so its preview
+// is the sign-in screen, which is a poor card for every shared link.
+export const DEFAULT_OG_IMAGE = "/img/previews/junjo.png";
 
 // Public social profiles (mirrors components/Footer.tsx) — used for schema.org sameAs.
 export const SOCIAL_LINKS = [
