@@ -34,9 +34,9 @@ export const projects: Project[] = [
     title: "Junjo",
     url: "https://junjo.io/",
     description:
-      "A game-backend platform and SDK I'm building that gives multiplayer games drop-in groups, ranks, and permissions (guilds, clans, factions) without each studio rebuilding them. It plugs into a game's existing auth instead of replacing it. The TypeScript SDK and React hooks are published on npm, and it ships with a Roblox client, an admin dashboard, and full docs.",
+      "A game-backend platform and SDK I'm building that gives multiplayer games drop-in groups, ranks, and permissions (guilds, clans, factions) without each studio rebuilding them. It plugs into a game's existing auth instead of replacing it. The TypeScript SDK and React hooks are published on npm, with native clients for Roblox, C++, and Unreal Engine, plus an admin dashboard and full docs. The whole monorepo is on GitHub: the clients are MIT, the server is source-available and self-hostable.",
     dateRange: "May 2026 - Present",
-    tech: ["TypeScript", "Hono", "Prisma", "PostgreSQL", "SSE", "Docker", "Railway"],
+    tech: ["TypeScript", "Hono", "Prisma", "PostgreSQL", "SSE", "C++", "Unreal", "Docker", "Railway"],
     preview: "preview-junjo",
     image: "/img/previews/junjo.png",
   },
