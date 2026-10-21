@@ -24,7 +24,8 @@ async function ensureMermaid() {
     mermaid.initialize({
       startOnLoad: false,
       theme: "base",
-      securityLevel: "loose",
+      // No diagram uses click handlers or links; strict sanitizes label HTML.
+      securityLevel: "strict",
       themeVariables: {
         darkMode: true,
         background: "transparent",
