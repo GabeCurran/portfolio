@@ -13,7 +13,7 @@
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^2.0.0",
     "mermaid": "^11.14.0",
-    "next": "15.5.9",
+    "next": "15.5.28",
     "nextjs-toploader": "^3.9.17",
     "react": "19.1.0",
     "react-dom": "19.1.0",
@@ -27,9 +27,12 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "15.5.3",
+    "eslint-config-next": "15.5.28",
     "puppeteer-core": "^24.41.0",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "overrides": {
+    "sharp": "^0.35.5"
   }
 }
